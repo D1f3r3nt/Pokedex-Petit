@@ -1,0 +1,41 @@
+import 'package:http/http.dart' as http;
+import '../../model/pokemon/PokemonResponse.dart';
+
+class NetworkDataSource {
+  final _baseUrl = "pokeapi.co";
+  final int _all = 151;
+  final int _pagination = 21;
+  
+  int _offset = 0;
+  int _limit = 0;
+  
+  Future<List<PokemonResponse>> _getPokemons() async {
+    List<PokemonResponse> result = [];
+    
+    for (int i = _offset; i < _limit; i++) {
+      var url = Uri.https(_baseUrl, '/api/v2/pokemon/$i/');
+
+      var response = await http.get(url);
+
+      final newPokemon = PokemonResponse.fromJson(response.body);
+      result.add(newPokemon);
+    }
+    
+    return result;
+  }
+
+  Future<List<PokemonResponse>> getPaginatedPokemons() async {
+    if (_offset == 0 && _limit == 0) {
+      _offset = 1;
+      _limit = _pagination;
+    } else if(_limit < 147) {
+      _offset = _limit;
+      _limit += _pagination;
+    } else if(_limit < _all) {
+      _offset = _limit;
+      _limit = _all;
+    }
+    
+    return _getPokemons();
+  }
+}
