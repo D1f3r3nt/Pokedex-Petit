@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_petit/domain/CapturedService.dart';
 import 'package:pokedex_petit/domain/PokemonService.dart';
 import 'package:pokedex_petit/ui/theme/PokeColors.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +15,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final pokemonService = Provider.of<PokemonService>(context);
+    final capturedService = Provider.of<CapturedService>(context);
     
     return Scaffold(
       appBar: AppBar(
@@ -33,6 +35,14 @@ class HomePage extends StatelessWidget {
                 showSearch(context: context, delegate: SearchPage());
               },
               icon: const Icon(Icons.search, color: Colors.white)
+          ),
+          IconButton(
+              onPressed: () {
+                capturedService.getCapturedPokemons();
+
+                Navigator.pushNamed(context, 'captured');
+              },
+              icon: const Icon(Icons.bookmarks_rounded, color: Colors.white)
           )
         ],
       ),

@@ -43,6 +43,21 @@ class NetworkDataSource {
     return PokemonResponse.fromJson(response.body);
   }
 
+  Future<List<PokemonResponse>> getFewPokemonById(List<int> ids) async {
+    List<PokemonResponse> result = [];
+
+    for (var i in ids) {
+      var url = Uri.https(_baseUrl, '/api/v2/pokemon/$i/');
+
+      var response = await http.get(url);
+
+      final newPokemon = PokemonResponse.fromJson(response.body);
+      result.add(newPokemon);
+    }
+
+    return result;
+  }
+
   Future<List<PokemonResponse>> getPaginatedPokemons() async {
     if (_offset == 0 && _limit == 0) {
       _offset = 1;

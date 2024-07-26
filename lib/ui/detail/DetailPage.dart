@@ -7,6 +7,8 @@ import 'package:pokedex_petit/ui/detail/components/organism/DetailPage_Body.dart
 import 'package:pokedex_petit/ui/theme/PokeColors.dart';
 import 'package:provider/provider.dart';
 
+import '../../domain/CapturedService.dart';
+
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key});
 
@@ -14,6 +16,7 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final argument = ModalRoute.of(context)!.settings.arguments;
     final detailService = Provider.of<DetailService>(context);
+    final capturedService = Provider.of<CapturedService>(context);
     
     if (argument is String) {
       detailService.getPokemonById(argument);
@@ -31,12 +34,21 @@ class DetailPage extends StatelessWidget {
           title: Text(StringUtils.formatIdPokemon(detailService.pokemon!.id)),
           centerTitle: true,
           actions: [
-            IconButton(
-                onPressed: () {
-                  // TODO: Save pokemon id
-                },
-                icon: const Icon(Icons.save, color: Colors.white)
-            )
+            // Miramos si ya esta guardado
+            !capturedService.pokemonsId.any((id) => id == detailService.pokemon!.id) ?
+              IconButton(
+                  onPressed: () {
+                    capturedService.catchNewPokemon(detailService.pokemon!.id);
+                  },
+                  icon: const Icon(Icons.save_outlined, color: Colors.white)
+              )
+            : 
+              IconButton(
+                  onPressed: () {
+                    capturedService.leaveOnePokemon(detailService.pokemon!.id);
+                  },
+                  icon: const Icon(Icons.save, color: Colors.white)
+              )
           ],
           backgroundColor: PokeColors.of(detailService.pokemon!.type),
         ),
