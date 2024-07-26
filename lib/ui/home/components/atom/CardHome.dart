@@ -45,7 +45,7 @@ class CardHome extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      formatIdPokemon(pokemon.id),
+                      StringUtils.formatIdPokemon(pokemon.id),
                       style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -79,11 +79,5 @@ class CardHome extends StatelessWidget {
     final hsl = HSLColor.fromColor(color);
     final lighterHsl = hsl.withLightness((hsl.lightness + amount).clamp(0.0, 1.0));
     return lighterHsl.toColor();
-  }
-  
-  String formatIdPokemon(int id) {
-    final String str = id.toString();
-    
-    return "#${str.padLeft(3, '0')}";
   }
 }

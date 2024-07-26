@@ -3,6 +3,7 @@ import 'package:pokedex_petit/domain/PokemonService.dart';
 import 'package:pokedex_petit/ui/theme/PokeColors.dart';
 import 'package:provider/provider.dart';
 
+import '../search/SearchPage.dart';
 import 'components/organism/HomePage_Body.dart';
 
 class HomePage extends StatelessWidget {
@@ -24,6 +25,16 @@ class HomePage extends StatelessWidget {
             ),
         ),
         backgroundColor: PokeColors.officialRed,
+        actions: [
+          IconButton(
+              onPressed: () {
+                pokemonService.getSearchPokemons();
+                
+                showSearch(context: context, delegate: SearchPage());
+              },
+              icon: const Icon(Icons.search)
+          )
+        ],
       ),
       body: SafeArea(
         child: HomePage_Body(pokemonService: pokemonService),

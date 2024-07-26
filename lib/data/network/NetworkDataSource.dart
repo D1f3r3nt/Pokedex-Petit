@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+import 'package:pokedex_petit/data/network/response/SearchPokemonResponse.dart';
 import '../../model/pokemon/PokemonResponse.dart';
 
 class NetworkDataSource {
@@ -22,6 +23,16 @@ class NetworkDataSource {
     }
     
     return result;
+  }
+  
+  Future<SearchPokemonResponse> getSearchPokemons() async {
+    var url = Uri.https(_baseUrl, '/api/v2/pokemon', {
+      "limit" : _all.toString()
+    });
+
+    var response = await http.get(url);
+
+    return SearchPokemonResponse.fromJson(response.body);
   }
 
   Future<List<PokemonResponse>> getPaginatedPokemons() async {
