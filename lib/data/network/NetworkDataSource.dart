@@ -3,7 +3,7 @@ import '../../model/pokemon/PokemonResponse.dart';
 
 class NetworkDataSource {
   final _baseUrl = "pokeapi.co";
-  final int _all = 151;
+  final int _all = 152;
   final int _pagination = 21;
   
   int _offset = 0;
@@ -28,10 +28,13 @@ class NetworkDataSource {
     if (_offset == 0 && _limit == 0) {
       _offset = 1;
       _limit = _pagination;
-    } else if(_limit < 147) {
+    } else if (_limit < 121) {
       _offset = _limit;
-      _limit += _pagination;
-    } else if(_limit < _all) {
+      _limit += _pagination - 1;
+    } else if(_limit >= _all) {
+      _offset = _all;
+      _limit = _all;
+    } else if (_limit < _all) {
       _offset = _limit;
       _limit = _all;
     }

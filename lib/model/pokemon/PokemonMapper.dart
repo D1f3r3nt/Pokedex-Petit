@@ -34,7 +34,8 @@ class PokemonMapper {
         elements: dto.types.map((e) => e.type.name).toList(), 
         weight: dto.weight,
         height: dto.height, 
-        info: dto.stats
+        info: dto.stats,
+        type: dto.types[0].type.name
     );
   }
 }

@@ -9,6 +9,7 @@ class PokemonService extends ChangeNotifier {
   
   final DataSource _dataSource = DataSource();
 
+  bool isLoading = false;
   List<PokemonUI> pokemons = [];
   
   PokemonService() {
@@ -16,12 +17,15 @@ class PokemonService extends ChangeNotifier {
   }
 
   getPokemons() async {
+    isLoading = true;
+    notifyListeners();
+    
     List<PokemonDto> result = await _dataSource.getPokemons();
 
-    this.pokemons = result
+    pokemons.addAll(result
         .map((e) => PokemonMapper.pokemonDtoToUI(e))
-        .toList();
-
+        .toList());
+    isLoading = false;
     notifyListeners();
   }
   

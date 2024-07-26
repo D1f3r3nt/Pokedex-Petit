@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_petit/domain/utils/StringUtils.dart';
+import 'package:pokedex_petit/ui/theme/PokeColors.dart';
 
 import '../../../../model/pokemon/PokemonUI.dart';
 
@@ -18,7 +19,14 @@ class CardHome extends StatelessWidget {
         onTap: () => Navigator.pushNamed(context, 'details', arguments: pokemon),
         child: Container(
           decoration: BoxDecoration(
-              color: Colors.black, // TODO: Change correct color
+              gradient: LinearGradient(
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter,
+                colors: [
+                  PokeColors.of(pokemon.type),
+                  lightenColor(PokeColors.of(pokemon.type))
+                ]
+              ),
               borderRadius: BorderRadius.circular(20),
           ),
           child: Column(
@@ -39,7 +47,7 @@ class CardHome extends StatelessWidget {
                     Text(
                       formatIdPokemon(pokemon.id),
                       style: const TextStyle(
-                        fontSize: 15,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold,
                         overflow: TextOverflow.ellipsis,
                         color: Colors.white,
@@ -48,7 +56,7 @@ class CardHome extends StatelessWidget {
                     Text(
                       StringUtils.toCapitalize(pokemon.name),
                       style: const TextStyle(
-                        fontSize: 15,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold,
                         overflow: TextOverflow.ellipsis,
                         color: Colors.white,
@@ -63,6 +71,14 @@ class CardHome extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Color lightenColor(Color color, [double amount = 0.3]) {
+    assert(amount >= 0 && amount <= 1, 'The amount should be between 0 and 1');
+
+    final hsl = HSLColor.fromColor(color);
+    final lighterHsl = hsl.withLightness((hsl.lightness + amount).clamp(0.0, 1.0));
+    return lighterHsl.toColor();
   }
   
   String formatIdPokemon(int id) {
