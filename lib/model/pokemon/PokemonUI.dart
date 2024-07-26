@@ -6,7 +6,7 @@ class PokemonUI {
   late String image;
   List<String> elements;
   int weight;
-  late double height;
+  int height;
   List<Stat> info;
   String type;
 
@@ -16,7 +16,7 @@ class PokemonUI {
     required String? image,
     required this.elements,
     required this.weight,
-    required int height,
+    required this.height,
     required this.info,
     required this.type
   }) {

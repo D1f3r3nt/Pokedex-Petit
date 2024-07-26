@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
                 
                 showSearch(context: context, delegate: SearchPage());
               },
-              icon: const Icon(Icons.search)
+              icon: const Icon(Icons.search, color: Colors.white)
           )
         ],
       ),

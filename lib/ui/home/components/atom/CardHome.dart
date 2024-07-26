@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex_petit/domain/utils/StringUtils.dart';
 import 'package:pokedex_petit/ui/theme/PokeColors.dart';
 
+import '../../../../domain/utils/ColorUtils.dart';
 import '../../../../model/pokemon/PokemonUI.dart';
 
 class CardHome extends StatelessWidget {
@@ -16,7 +17,7 @@ class CardHome extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: GestureDetector(
-        onTap: () => Navigator.pushNamed(context, 'details', arguments: pokemon),
+        onTap: () => Navigator.pushNamed(context, 'detail', arguments: pokemon),
         child: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -24,7 +25,7 @@ class CardHome extends StatelessWidget {
                 end: Alignment.topCenter,
                 colors: [
                   PokeColors.of(pokemon.type),
-                  lightenColor(PokeColors.of(pokemon.type))
+                  ColorUtils.lightenColor(PokeColors.of(pokemon.type))
                 ]
               ),
               borderRadius: BorderRadius.circular(20),
@@ -71,13 +72,5 @@ class CardHome extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Color lightenColor(Color color, [double amount = 0.3]) {
-    assert(amount >= 0 && amount <= 1, 'The amount should be between 0 and 1');
-
-    final hsl = HSLColor.fromColor(color);
-    final lighterHsl = hsl.withLightness((hsl.lightness + amount).clamp(0.0, 1.0));
-    return lighterHsl.toColor();
   }
 }

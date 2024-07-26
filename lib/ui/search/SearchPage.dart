@@ -24,7 +24,7 @@ class SearchPage extends SearchDelegate<SearchPokemonUI> {
 
     return ListView.builder(itemBuilder: (_, index) {
       return ListTile(
-        onTap: handleOnTap,
+        onTap: () => handleOnTap(context, pokemon[index]),
         title: handleTitle(pokemon[index]),
       );},
       itemCount: pokemon.length,
@@ -41,7 +41,7 @@ class SearchPage extends SearchDelegate<SearchPokemonUI> {
     return ListView.builder(
       itemBuilder: (_, index) {
         return ListTile(
-          onTap: handleOnTap,
+          onTap: () => handleOnTap(context, pokemon[index]),
           title: handleTitle(pokemon[index]),
         );
       },
@@ -60,7 +60,7 @@ class SearchPage extends SearchDelegate<SearchPokemonUI> {
     );
   }
   
-  handleOnTap() {
-    
+  handleOnTap(BuildContext context,SearchPokemonUI pokemon) {
+    Navigator.pushNamed(context, 'detail', arguments: pokemon.id);
   }
 }

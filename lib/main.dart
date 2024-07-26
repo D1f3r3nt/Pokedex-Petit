@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_petit/domain/DetailService.dart';
 import 'package:pokedex_petit/domain/PokemonService.dart';
 import 'package:pokedex_petit/ui/route/router.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +15,8 @@ class AppState extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => PokemonService(), lazy: false,)
+        ChangeNotifierProvider(create: (_) => PokemonService(), lazy: false,),
+        ChangeNotifierProvider(create: (_) => DetailService(), lazy: false,)
       ],
       child: const MyApp(),
     );

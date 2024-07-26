@@ -21,4 +21,10 @@ class DataSource {
 
     return searchPokemonResponse.results;
   }
+
+  Future<PokemonDto> getPokemonById(int id) async {
+    PokemonResponse pokemon = await networkDataSource.getPokemonById(id);
+
+    return PokemonMapper.pokemonResponseToDto(pokemon);
+  }
 }
