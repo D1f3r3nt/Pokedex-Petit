@@ -46,6 +46,9 @@ class CapturedService extends ChangeNotifier {
     leaveOnePokemon(int id, String type) {
       _dataSource.leaveOnePokemon(id, type);
 
+      // If is in pokemons array remove it
+      pokemons.removeWhere((element) => element.id == id);
+      
       getCapturedPokemonsId();
     }
     

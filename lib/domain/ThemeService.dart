@@ -4,8 +4,6 @@ import '../data/DataSource.dart';
 import '../ui/theme/PokeColors.dart';
 
 // TODO: Crear clases globales de los Strings
-// TODO: Crear una clase para Text Styles
-// TODO: No permitir modificacion en capturado
 
 class ThemeService extends ChangeNotifier {
   final DataSource _dataSource = DataSource();
@@ -25,9 +23,6 @@ class ThemeService extends ChangeNotifier {
     _getCapturedTypes();
     
     String? mostType = _mostFrequentString(types);
-    
-    print(mostType);
-    print(types);
     
     mainColor = mostType != null ? PokeColors.of(mostType) : PokeColors.officialRed;
     

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex_petit/domain/CapturedService.dart';
 import 'package:pokedex_petit/domain/PokemonService.dart';
 import 'package:pokedex_petit/domain/ThemeService.dart';
+import 'package:pokedex_petit/ui/theme/PokeTextStyles.dart';
 import 'package:provider/provider.dart';
 
 import '../search/SearchPage.dart';
@@ -20,12 +21,9 @@ class HomePage extends StatelessWidget {
     
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
             "Pokedex",
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold
-            ),
+            style: PokeTextStyles.appBarTitle
         ),
         backgroundColor: themeService.mainColor,
         actions: [
@@ -47,8 +45,8 @@ class HomePage extends StatelessWidget {
           )
         ],
       ),
-      body: SafeArea(
-        child: HomePage_Body(pokemonService: pokemonService),
+      body: const SafeArea(
+        child: HomePage_Body(),
       )
     );
   }

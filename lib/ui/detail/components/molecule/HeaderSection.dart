@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_petit/ui/theme/PokeTextStyles.dart';
 
 import '../../../../domain/utils/StringUtils.dart';
 import '../../../../model/pokemon/PokemonUI.dart';
@@ -24,11 +25,7 @@ class HeaderSection extends StatelessWidget {
               children: [
                 Text(
                   StringUtils.toCapitalize(pokemon.name),
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30
-                  ),
+                  style: PokeTextStyles.detailHeaderName,
                 ),
               ],
             ),

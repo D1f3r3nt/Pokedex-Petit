@@ -30,10 +30,10 @@ class SearchPage extends SearchDelegate<SearchPokemonUI> {
       itemCount: pokemon.length,
     );
   }
-
+  
+  // Los resultados ha medida que se va escribiendo
   @override
   Widget buildSuggestions(BuildContext context) {
-    // Los resultados ha medida que se va escribiendo
     final PokemonService pokemonService = Provider.of(context);
 
     pokemon = pokemonService.searchPokemons.where((element) => RegExp(query, caseSensitive: false).hasMatch(element.name)).toList();

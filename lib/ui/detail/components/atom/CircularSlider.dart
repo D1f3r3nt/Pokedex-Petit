@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_petit/domain/utils/ColorUtils.dart';
+import 'package:pokedex_petit/ui/theme/PokeTextStyles.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 import '../../../../model/pokemon/PokemonResponse.dart';
@@ -29,18 +30,11 @@ class CircularSlider extends StatelessWidget {
         children: [
           Text(
               formatSliderText(stat.stat.name.toUpperCase()), 
-              style: TextStyle(
-                  fontSize: 17, 
-                  fontWeight: FontWeight.bold,
-                  color: color
-              ),
+              style: PokeTextStyles.circularSliderHeader(color),
           ),
           Text(
               "${stat.baseStat}", 
-              style: TextStyle(
-                  fontSize: 15,
-                  color: lightColor,
-              )
+              style: PokeTextStyles.circularSliderValue(lightColor),
           )
         ],
       ),

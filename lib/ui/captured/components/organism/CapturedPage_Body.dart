@@ -11,8 +11,9 @@ class CapturedPage_Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final capturedService = Provider.of<CapturedService>(context);
+    
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, ),
+      padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Column(
         children: [
           const FilterSection(),

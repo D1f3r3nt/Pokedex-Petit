@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex_petit/domain/utils/StringUtils.dart';
 import 'package:pokedex_petit/ui/detail/components/atom/CircularSlider.dart';
 import 'package:pokedex_petit/ui/theme/PokeColors.dart';
+import 'package:pokedex_petit/ui/theme/PokeTextStyles.dart';
 
 import '../../../../model/pokemon/PokemonUI.dart';
 
@@ -37,11 +38,7 @@ class InfoSection extends StatelessWidget {
                   child: Center(
                       child: Text(
                         StringUtils.toCapitalize(pokemon.type),
-                        style: const TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: PokeTextStyles.detailType,
                       )
                   ),
                 ),
@@ -54,7 +51,7 @@ class InfoSection extends StatelessWidget {
                     children: [
                       Icon(Icons.monitor_weight, size: 30, color: color),
                       const SizedBox(width: 5,),
-                      Text("${pokemon.weight} kg", style: TextStyle(fontSize: 17, color: color))
+                      Text("${pokemon.weight} kg", style: PokeTextStyles.detailValues(color))
                     ],
                   ),
                   Row(
@@ -62,7 +59,7 @@ class InfoSection extends StatelessWidget {
                     children: [
                       Icon(Icons.height, size: 30, color: color),
                       const SizedBox(width: 5,),
-                      Text("${pokemon.height} m", style: TextStyle(fontSize: 17, color: color))
+                      Text("${pokemon.height} m", style: PokeTextStyles.detailValues(color))
                     ],
                   )
                 ],
@@ -72,17 +69,17 @@ class InfoSection extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      CircularSlider(stat: pokemon.info[0], color: PokeColors.of(pokemon.type)),
-                      CircularSlider(stat: pokemon.info[1], color: PokeColors.of(pokemon.type)),
-                      CircularSlider(stat: pokemon.info[2], color: PokeColors.of(pokemon.type)),
+                      CircularSlider(stat: pokemon.info[0], color: color),
+                      CircularSlider(stat: pokemon.info[1], color: color),
+                      CircularSlider(stat: pokemon.info[2], color: color),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      CircularSlider(stat: pokemon.info[3], color: PokeColors.of(pokemon.type)),
-                      CircularSlider(stat: pokemon.info[4], color: PokeColors.of(pokemon.type)),
-                      CircularSlider(stat: pokemon.info[5], color: PokeColors.of(pokemon.type)),
+                      CircularSlider(stat: pokemon.info[3], color: color),
+                      CircularSlider(stat: pokemon.info[4], color: color),
+                      CircularSlider(stat: pokemon.info[5], color: color),
                     ],
                   )
                 ],

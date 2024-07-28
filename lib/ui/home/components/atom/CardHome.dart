@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_petit/domain/utils/StringUtils.dart';
 import 'package:pokedex_petit/ui/theme/PokeColors.dart';
+import 'package:pokedex_petit/ui/theme/PokeTextStyles.dart';
 
 import '../../../../domain/utils/ColorUtils.dart';
 import '../../../../model/pokemon/PokemonUI.dart';
@@ -47,21 +48,11 @@ class CardHome extends StatelessWidget {
                   children: [
                     Text(
                       StringUtils.formatIdPokemon(pokemon.id),
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        overflow: TextOverflow.ellipsis,
-                        color: Colors.white,
-                      ),
+                      style: PokeTextStyles.cardLabels,
                     ),
                     Text(
                       StringUtils.toCapitalize(pokemon.name),
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        overflow: TextOverflow.ellipsis,
-                        color: Colors.white,
-                      ),
+                      style: PokeTextStyles.cardLabels,
                       maxLines: 1,
                     ),
                   ],
