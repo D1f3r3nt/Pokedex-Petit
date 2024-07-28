@@ -8,6 +8,7 @@ import 'package:pokedex_petit/ui/theme/PokeColors.dart';
 import 'package:provider/provider.dart';
 
 import '../../domain/CapturedService.dart';
+import '../../domain/ThemeService.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key});
@@ -17,6 +18,7 @@ class DetailPage extends StatelessWidget {
     final argument = ModalRoute.of(context)!.settings.arguments;
     final detailService = Provider.of<DetailService>(context);
     final capturedService = Provider.of<CapturedService>(context);
+    final themeService = Provider.of<ThemeService>(context);
     
     if (argument is String) {
       detailService.getPokemonById(argument);
@@ -38,14 +40,16 @@ class DetailPage extends StatelessWidget {
             !capturedService.pokemonsId.any((id) => id == detailService.pokemon!.id) ?
               IconButton(
                   onPressed: () {
-                    capturedService.catchNewPokemon(detailService.pokemon!.id);
+                    capturedService.catchNewPokemon(detailService.pokemon!.id, detailService.pokemon!.type);
+                    themeService.calculateMainColor();
                   },
                   icon: const Icon(Icons.save_outlined, color: Colors.white)
               )
             : 
               IconButton(
                   onPressed: () {
-                    capturedService.leaveOnePokemon(detailService.pokemon!.id);
+                    capturedService.leaveOnePokemon(detailService.pokemon!.id, detailService.pokemon!.type);
+                    themeService.calculateMainColor();
                   },
                   icon: const Icon(Icons.save, color: Colors.white)
               )

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_petit/domain/CapturedService.dart';
 import 'package:pokedex_petit/ui/captured/components/organism/CapturedPage_Body.dart';
-import 'package:pokedex_petit/ui/theme/PokeColors.dart';
 import 'package:provider/provider.dart';
+
+import '../../domain/ThemeService.dart';
 
 class CapturedPage extends StatelessWidget {
   const CapturedPage({super.key});
@@ -10,16 +10,16 @@ class CapturedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    final capturedService = Provider.of<CapturedService>(context);
+    final themeService = Provider.of<ThemeService>(context);
     
     return Scaffold(
       appBar: AppBar(
-        title: Text("Captured"),
-        backgroundColor: PokeColors.officialRed,
+        title: const Text("Captured"),
+        backgroundColor: themeService.mainColor,
         foregroundColor: Colors.white,
       ),
-      body: SafeArea(child: 
-        CapturedPage_Body(capturedService: capturedService)
+      body: const SafeArea(
+          child: CapturedPage_Body()
       ),
     );
   }

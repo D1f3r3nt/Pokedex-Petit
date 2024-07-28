@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex_petit/domain/CapturedService.dart';
 import 'package:pokedex_petit/domain/DetailService.dart';
 import 'package:pokedex_petit/domain/PokemonService.dart';
+import 'package:pokedex_petit/domain/ThemeService.dart';
 import 'package:pokedex_petit/ui/route/router.dart';
 import 'package:provider/provider.dart';
 
@@ -22,7 +23,8 @@ class AppState extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => PokemonService(), lazy: false,),
         ChangeNotifierProvider(create: (_) => DetailService(), lazy: false,),
-        ChangeNotifierProvider(create: (_) => CapturedService(), lazy: false,)
+        ChangeNotifierProvider(create: (_) => CapturedService(), lazy: false,),
+        ChangeNotifierProvider(create: (_) => ThemeService(), lazy: false,),
       ],
       child: const MyApp(),
     );

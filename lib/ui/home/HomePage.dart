@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_petit/domain/CapturedService.dart';
 import 'package:pokedex_petit/domain/PokemonService.dart';
-import 'package:pokedex_petit/ui/theme/PokeColors.dart';
+import 'package:pokedex_petit/domain/ThemeService.dart';
 import 'package:provider/provider.dart';
 
 import '../search/SearchPage.dart';
@@ -16,6 +16,7 @@ class HomePage extends StatelessWidget {
 
     final pokemonService = Provider.of<PokemonService>(context);
     final capturedService = Provider.of<CapturedService>(context);
+    final themeService = Provider.of<ThemeService>(context);
     
     return Scaffold(
       appBar: AppBar(
@@ -26,7 +27,7 @@ class HomePage extends StatelessWidget {
               fontWeight: FontWeight.bold
             ),
         ),
-        backgroundColor: PokeColors.officialRed,
+        backgroundColor: themeService.mainColor,
         actions: [
           IconButton(
               onPressed: () {

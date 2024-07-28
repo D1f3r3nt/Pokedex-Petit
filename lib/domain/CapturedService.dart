@@ -37,14 +37,14 @@ class CapturedService extends ChangeNotifier {
       notifyListeners();
     }
     
-    catchNewPokemon(int id) {
-      _dataSource.catchNewPokemon(id);
+    catchNewPokemon(int id, String type) {
+      _dataSource.catchNewPokemon(id, type);
       
       getCapturedPokemonsId();
     }
     
-    leaveOnePokemon(int id) {
-      _dataSource.leaveOnePokemon(id);
+    leaveOnePokemon(int id, String type) {
+      _dataSource.leaveOnePokemon(id, type);
 
       getCapturedPokemonsId();
     }

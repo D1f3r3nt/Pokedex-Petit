@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_petit/domain/CapturedService.dart';
 import 'package:pokedex_petit/ui/captured/components/molecule/FilterSection.dart';
+import 'package:provider/provider.dart';
 
 import '../../../components/molecule/ShowPokemons.dart';
 
 class CapturedPage_Body extends StatelessWidget {
-  const CapturedPage_Body({
-    super.key,
-    required this.capturedService,
-  });
-
-  final CapturedService capturedService;
+  const CapturedPage_Body({super.key});
   
   @override
   Widget build(BuildContext context) {
+    final capturedService = Provider.of<CapturedService>(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, ),
       child: Column(
         children: [
-          FilterSection(capturedService: capturedService),
+          const FilterSection(),
           
           Expanded(
             child: ShowPokemons(

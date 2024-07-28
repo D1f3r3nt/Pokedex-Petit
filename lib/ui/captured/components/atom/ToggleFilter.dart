@@ -7,11 +7,13 @@ class ToggleFilter extends StatelessWidget {
     required this.label,
     required this.onPressed,
     required this.isActive,
+    required this.activeColor,
   });
 
   final String label;
   final VoidCallback onPressed;
   final bool isActive;
+  final Color activeColor;
   
   @override
   Widget build(BuildContext context) {
@@ -19,8 +21,8 @@ class ToggleFilter extends StatelessWidget {
         onPressed: onPressed,
         style: ButtonStyle(
           elevation: WidgetStateProperty.all(0),
-          backgroundColor: WidgetStateProperty.all(isActive ? PokeColors.officialRed : Color(0xFFC5C5C5)),
-          foregroundColor: WidgetStateProperty.all(Colors.white)
+          backgroundColor: WidgetStateProperty.all(isActive ? activeColor : Colors.transparent),
+          foregroundColor: WidgetStateProperty.all(isActive ? Colors.white : Colors.black)
         ), 
         child: Text(label),
     );

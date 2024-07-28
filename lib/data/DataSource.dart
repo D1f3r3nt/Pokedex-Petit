@@ -32,6 +32,10 @@ class DataSource {
   List<int> getCapturedPokemonsId() {
     return Preferences.idsCaptured.map((e) => int.parse(e)).toList();
   }
+
+  List<String> getCapturedPokemonsType() {
+    return Preferences.typeCaptured;
+  }
   
   Future<List<PokemonDto>> getCapturedPokemons() async {
     List<int> ids = getCapturedPokemonsId();
@@ -40,17 +44,25 @@ class DataSource {
     return pokemonResponse.map((e) => PokemonMapper.pokemonResponseToDto(e)).toList();
   }
   
-  void catchNewPokemon(int id) {
+  void catchNewPokemon(int id, String type) {
     List<String> ids = Preferences.idsCaptured;
     ids.add(id.toString());
+
+    List<String> types = Preferences.typeCaptured;
+    types.add(type);
     
     Preferences.idsCaptured = ids;
+    Preferences.typeCaptured = types;
   }
 
-  void leaveOnePokemon(int id) {
+  void leaveOnePokemon(int id, String type) {
     List<String> ids = Preferences.idsCaptured;
     ids.remove(id.toString());
 
+    List<String> types = Preferences.typeCaptured;
+    types.remove(type);
+
     Preferences.idsCaptured = ids;
+    Preferences.typeCaptured = types;
   }
 }
