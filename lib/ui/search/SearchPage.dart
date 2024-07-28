@@ -4,6 +4,8 @@ import 'package:pokedex_petit/domain/utils/StringUtils.dart';
 import 'package:pokedex_petit/model/search_pokemon/SearchPokemonUI.dart';
 import 'package:provider/provider.dart';
 
+import '../route/router.dart';
+
 class SearchPage extends SearchDelegate<SearchPokemonUI> {
   List<SearchPokemonUI> pokemon = [];
   
@@ -61,6 +63,6 @@ class SearchPage extends SearchDelegate<SearchPokemonUI> {
   }
   
   handleOnTap(BuildContext context,SearchPokemonUI pokemon) {
-    Navigator.pushNamed(context, 'detail', arguments: pokemon.id);
+    Navigator.pushNamed(context, NavigationRouter.DETAIL, arguments: pokemon.id);
   }
 }

@@ -3,8 +3,6 @@ import 'package:flutter/cupertino.dart';
 import '../data/DataSource.dart';
 import '../ui/theme/PokeColors.dart';
 
-// TODO: Crear clases globales de los Strings
-
 class ThemeService extends ChangeNotifier {
   final DataSource _dataSource = DataSource();
 

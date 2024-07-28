@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_petit/domain/CapturedService.dart';
+import 'package:pokedex_petit/domain/utils/LabelsUtils.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../domain/ThemeService.dart';
@@ -21,14 +22,14 @@ class FilterSection extends StatelessWidget {
           const Icon(Icons.filter_alt),
           const SizedBox(width: 12),
           ToggleFilter(
-            label: "A-Z",
+            label: LabelsUtils.FILTER_ALPHABETIC,
             onPressed: () => capturedService.filterPokemons(Filters.ALPHABETIC),
             isActive: capturedService.isAlphabeticFilter,
             activeColor: themeService.mainColor,
           ),
           const SizedBox(width: 12),
           ToggleFilter(
-            label: "Type",
+            label: LabelsUtils.FILTER_TYPE,
             onPressed: () => capturedService.filterPokemons(Filters.TYPE),
             isActive: capturedService.isTypeFilter,
             activeColor: themeService.mainColor,

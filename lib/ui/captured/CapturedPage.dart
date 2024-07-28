@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_petit/domain/utils/LabelsUtils.dart';
 import 'package:pokedex_petit/ui/captured/components/organism/CapturedPage_Body.dart';
 import 'package:pokedex_petit/ui/theme/PokeTextStyles.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +17,7 @@ class CapturedPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            "Captured",
+            LabelsUtils.CAPTURED_TITLE,
             style: PokeTextStyles.appBarTitle,
         ),
         backgroundColor: themeService.mainColor,

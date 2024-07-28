@@ -3,6 +3,7 @@ import 'package:pokedex_petit/domain/CapturedService.dart';
 import 'package:pokedex_petit/domain/DetailService.dart';
 import 'package:pokedex_petit/domain/PokemonService.dart';
 import 'package:pokedex_petit/domain/ThemeService.dart';
+import 'package:pokedex_petit/domain/utils/LabelsUtils.dart';
 import 'package:pokedex_petit/ui/route/router.dart';
 import 'package:provider/provider.dart';
 
@@ -39,14 +40,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Pokedex Petit',
+      title: LabelsUtils.APP_TITLE,
       debugShowCheckedModeBanner: false,
-      // theme: ThemeData(
-      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      //   useMaterial3: true,
-      // ),
       routes: getRouter,
-      initialRoute: '/',
+      initialRoute: NavigationRouter.HOME,
     );
   }
 }

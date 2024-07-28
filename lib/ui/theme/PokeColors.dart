@@ -1,26 +1,26 @@
 import 'dart:ui';
 
 class PokeColors {
-  static Color officialRed = Color(0xFFff0000);
+  static Color officialRed = const Color(0xFFff0000);
   
-  static Color bug = Color(0xFF94bc4a);
-  static Color dark = Color(0xFF736c75);
-  static Color dragon = Color(0xFF6a7baf);
-  static Color electric = Color(0xFFe5c531);
-  static Color fairy = Color(0xFFe397d1);
-  static Color fighting = Color(0xFFcb5f48);
-  static Color fire = Color(0xFFea7a3c);
-  static Color flying = Color(0xFF7da6de);
-  static Color ghost = Color(0xFF846ab6);
-  static Color grass = Color(0xFF71c558);
-  static Color ground = Color(0xFFcc9f4f);
-  static Color ice = Color(0xFF70cbd4);
-  static Color normal = Color(0xFFaab09f);
-  static Color poison = Color(0xFFb468b7);
-  static Color psychic = Color(0xFFe5709b);
-  static Color rock = Color(0xFFb2a061);
-  static Color steel = Color(0xFF89a1b0);
-  static Color water = Color(0xFF539ae2);
+  static Color bug = const Color(0xFF94bc4a);
+  static Color dark = const Color(0xFF736c75);
+  static Color dragon = const Color(0xFF6a7baf);
+  static Color electric = const Color(0xFFe5c531);
+  static Color fairy = const Color(0xFFe397d1);
+  static Color fighting = const Color(0xFFcb5f48);
+  static Color fire = const Color(0xFFea7a3c);
+  static Color flying = const Color(0xFF7da6de);
+  static Color ghost = const Color(0xFF846ab6);
+  static Color grass = const Color(0xFF71c558);
+  static Color ground = const Color(0xFFcc9f4f);
+  static Color ice = const Color(0xFF70cbd4);
+  static Color normal = const Color(0xFFaab09f);
+  static Color poison = const Color(0xFFb468b7);
+  static Color psychic = const Color(0xFFe5709b);
+  static Color rock = const Color(0xFFb2a061);
+  static Color steel = const Color(0xFF89a1b0);
+  static Color water = const Color(0xFF539ae2);
   
   static Color of(String str) {
     switch (str) {

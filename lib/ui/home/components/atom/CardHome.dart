@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_petit/domain/utils/StringUtils.dart';
+import 'package:pokedex_petit/ui/route/router.dart';
 import 'package:pokedex_petit/ui/theme/PokeColors.dart';
 import 'package:pokedex_petit/ui/theme/PokeTextStyles.dart';
 
@@ -18,7 +19,7 @@ class CardHome extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: GestureDetector(
-        onTap: () => Navigator.pushNamed(context, 'detail', arguments: pokemon),
+        onTap: () => Navigator.pushNamed(context, NavigationRouter.DETAIL, arguments: pokemon),
         child: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
