@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_petit/ui/components/Progress.dart';
+import 'package:pokedex_petit/ui/components/atom/Progress.dart';
 
-import '../../../../model/pokemon/PokemonUI.dart';
-import '../atom/CardHome.dart';
+import '../../../model/pokemon/PokemonUI.dart';
+import '../../home/components/atom/CardHome.dart';
 
 class ShowPokemons extends StatefulWidget {
   

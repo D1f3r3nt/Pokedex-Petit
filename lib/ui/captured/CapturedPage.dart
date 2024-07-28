@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_petit/domain/CapturedService.dart';
+import 'package:pokedex_petit/ui/captured/components/organism/CapturedPage_Body.dart';
+import 'package:pokedex_petit/ui/theme/PokeColors.dart';
 import 'package:provider/provider.dart';
 
 class CapturedPage extends StatelessWidget {
@@ -11,8 +13,14 @@ class CapturedPage extends StatelessWidget {
     final capturedService = Provider.of<CapturedService>(context);
     
     return Scaffold(
-      appBar: AppBar(),
-      body: Center(child: Text(capturedService.pokemons.map((e) => e.id).toList().toString())),
+      appBar: AppBar(
+        title: Text("Captured"),
+        backgroundColor: PokeColors.officialRed,
+        foregroundColor: Colors.white,
+      ),
+      body: SafeArea(child: 
+        CapturedPage_Body(capturedService: capturedService)
+      ),
     );
   }
 }

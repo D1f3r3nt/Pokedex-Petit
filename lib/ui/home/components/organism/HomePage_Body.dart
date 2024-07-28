@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_petit/ui/home/components/molecule/ShowPokemons.dart';
+import 'package:pokedex_petit/ui/components/molecule/ShowPokemons.dart';
 
 import '../../../../domain/PokemonService.dart';
 

@@ -1,0 +1,4 @@
+enum Filters {
+  TYPE,
+  ALPHABETIC
+}

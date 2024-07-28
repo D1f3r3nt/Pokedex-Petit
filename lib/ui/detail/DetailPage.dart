@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex_petit/domain/DetailService.dart';
 import 'package:pokedex_petit/domain/utils/StringUtils.dart';
 import 'package:pokedex_petit/model/pokemon/PokemonUI.dart';
-import 'package:pokedex_petit/ui/components/Progress.dart';
+import 'package:pokedex_petit/ui/components/atom/Progress.dart';
 import 'package:pokedex_petit/ui/detail/components/organism/DetailPage_Body.dart';
 import 'package:pokedex_petit/ui/theme/PokeColors.dart';
 import 'package:provider/provider.dart';
