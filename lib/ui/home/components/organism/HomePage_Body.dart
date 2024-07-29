@@ -15,7 +15,11 @@ class HomePage_Body extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: ShowPokemons(
           pokemons: pokemonService.pokemons,
-          moreData: pokemonService.getPokemons,
+          moreData: () {
+            if (!pokemonService.isLoading) {
+              pokemonService.getPokemons();
+            }
+          },
           isLoading: pokemonService.isLoading,
       ),
     );
