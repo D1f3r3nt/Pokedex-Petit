@@ -24,11 +24,19 @@ with customizable colors based on the type of Pokémon captured.
 - Includes a search bar to filter Pokémon by name.
 - Clicking on a Pokémon opens a detailed view of that Pokémon.
 
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/75cf7152-cdd3-4d4f-a8d4-7224ce1af931" alt="drawing" width="200"/>
+</p>
+
 ### Captured
 
 - Displays the list of Pokémon captured by the trainer, sorted by their ID.
 - Includes options to filter Pokémon by type and sort them alphabetically.
 - Clicking on a Pokémon opens a detailed view of that Pokémon.
+
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/29bcc7c4-adba-41bf-aee7-0e19b4745119" alt="drawing" width="200"/>
+</p>
 
 ### Pokémon Detail
 
@@ -40,6 +48,10 @@ with customizable colors based on the type of Pokémon captured.
     - Type
 - Provides options to add or remove the Pokémon from the captured list.
 - Captured Pokémon data is stored locally on the device.
+  
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/20aec482-e370-4f0c-9a66-8331861d9956" alt="drawing" width="200"/>
+</p>
 
 ## User Interface (UI)
 
